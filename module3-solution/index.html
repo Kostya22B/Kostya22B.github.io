@@ -6,21 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Responsive Layout with Bootstrap</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <nav class="navbar navbar-default">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Food, LLC</a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="#">Food, LLC</a>
       </div>
-      <div class="collapse navbar-collapse" id="navbar-menu">
+      <div class="collapse navbar-collapse" id="menu-collapse">
         <ul class="nav navbar-nav visible-xs">
           <li><a href="#">Chicken</a></li>
           <li><a href="#">Beef</a></li>
@@ -29,22 +30,18 @@
       </div>
     </div>
   </nav>
-  <div class="container text-center">
+  <header class="text-center">
     <h1>Our Menu</h1>
-  </div>
-  <section class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tristique dolor nec bibendum lobortis.
-            Nulla facilisi. Etiam scelerisque malesuada odio, sit amet suscipit nulla euismod et.</p>
-          <!-- More content here -->
-        </div>
+  </header>
+  <section class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </div>
   </section>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 

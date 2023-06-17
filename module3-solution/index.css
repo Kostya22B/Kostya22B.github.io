@@ -2,6 +2,18 @@ body {
     background-color: #f5f5f5;
   }
   
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+  }
+  
   .navbar {
     background-color: #333;
     border: none;
@@ -9,11 +21,20 @@ body {
   
   .navbar-brand {
     color: #fff;
+    font-weight: bold;
   }
   
-  .section {
+  .navbar-nav > li > a {
+    color: #fff;
+  }
+  
+  .navbar-toggle .icon-bar {
     background-color: #fff;
-    padding: 20px;
-    margin: 20px 0;
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-nav.visible-xs {
+      display: none;
+    }
   }
   
