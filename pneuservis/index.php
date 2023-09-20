@@ -23,5 +23,6 @@
         echo "<p><a href='register.php'>Зареєструватися</a></p>";
     }
     ?>
+<p>hui</p>
 </body>
 </html>
