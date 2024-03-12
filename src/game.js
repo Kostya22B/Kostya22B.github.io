@@ -256,10 +256,17 @@ export default class Game {
 
   updateScore(clearedLines) {
     if (clearedLines > 0) {
-      this.score += Game.points[clearedLines] * (this.level + 1);
-      this.lines += clearedLines;
+        const newScore = Game.points[clearedLines] * (this.level + 1);
+        this.score += newScore;
+        this.lines += clearedLines;
+        const savedRecord = parseInt(localStorage.getItem('tetrisRecord'), 10) || 0;
+        console.log(newScore, Game.score, savedRecord);
+        if (this.score > savedRecord) {
+            localStorage.setItem('tetrisRecord', this.score);
+        }
     }
-  }
+}
+
 
   updatePieces() {
     this.activePiece = this.nextPiece;

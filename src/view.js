@@ -42,8 +42,14 @@ export default class View {
     this.clearScreen();
     this.renderPlayfield(state);
     this.renderPanel(state);
+    const recordDisplay = document.getElementById('recordDisplay');
+    const savedRecord = localStorage.getItem('tetrisRecord');
+    if (savedRecord) {
+        recordDisplay.innerText = `Рекорд: ${savedRecord}`;
+    } else {
+        recordDisplay.innerText = `Рекорд: 0`;
+    }
 }
-
 
   renderStartScreen() {
     this.context.fillStyle = "white";
@@ -65,10 +71,6 @@ export default class View {
   }
 
   renderEndScreen({ score }) {
-    const gameResult = {
-        username: 'Имя игрока',
-        score: score
-    };
     this.clearScreen();
     this.context.fillStyle = "white";
     this.context.font = "18px 'Press Start 2P'";

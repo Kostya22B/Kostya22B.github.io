@@ -6,32 +6,12 @@ export default class Controller {
     this.isPlaying = false;
     this.username = "";
 
-    // this.saveUsernameButton = document.getElementById("saveUsername");
-    // this.saveUsernameButton.addEventListener("click", this.saveUsername.bind(this));
-
     document.addEventListener("keydown", this.handleKeyDown.bind(this));
     document.addEventListener("keyup", this.handleKeyUp.bind(this));
 
     this.view.renderStartScreen();
   }
 
-//   saveUsername() {
-//     const usernameInput = document.getElementById("username").value;
-//     this.username = usernameInput;
-//     this.view.renderPanel(this.game.getState(), this.username);
-//   }
-//   saveResultToFile(result) {
-//     const jsonData = JSON.stringify(result);
-//     const blob = new Blob([jsonData], { type: 'application/json' });
-//     const url = URL.createObjectURL(blob);
-//     const a = document.createElement('a');
-//     a.href = url;
-//     a.download = 'game_result.json';
-//     document.body.appendChild(a);
-//     a.click();
-//     document.body.removeChild(a);
-//     URL.revokeObjectURL(url);
-// }
 
 
   update() {
