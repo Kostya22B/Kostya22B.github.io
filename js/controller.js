@@ -4,15 +4,13 @@ export default class Controller {
     this.view = view;
     this.intervalId = null;
     this.isPlaying = false;
-    this.username = "";
 
     document.addEventListener("keydown", this.handleKeyDown.bind(this));
     document.addEventListener("keyup", this.handleKeyUp.bind(this));
 
     this.view.renderStartScreen();
+    this.playing_audio = new Audio('../src/audio/RammsteinDuhast.mp3');
   }
-
-
 
   update() {
     this.game.movePieceDown();
@@ -38,14 +36,15 @@ export default class Controller {
 
   updateView() {
     const state = this.game.getState();
-
     if (state.isGameOver) {
       this.view.renderEndScreen(state);
-      
+      document.body.style.overflow = '';
     } else if (!this.isPlaying) {
       this.view.renderPauseScreen();
+      document.body.style.overflow = '';
     } else {
       this.view.renderMainScreen(state);
+      document.body.style.overflow = 'hidden';
     }
   }
 
@@ -68,15 +67,16 @@ export default class Controller {
 
   handleKeyDown(event) {
     const state = this.game.getState();
-
     switch (event.keyCode) {
       case 13: //ENTER
       if (state.isGameOver) {
         this.reset();
       } else if (this.isPlaying) {
         this.pause();
+        this.playing_audio.pause();
       } else {
         this.play();
+        this.playing_audio.play();
       }
       break;
       case 37: // LEFT ARROW

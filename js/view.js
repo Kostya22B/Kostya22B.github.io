@@ -34,7 +34,7 @@ export default class View {
     this.panelY = 0;
     this.panelWidth = this.width / 3;
     this.panelHeight = this.height;
-
+    const playing_audio = new Audio('../src/audioRammsteinDuhast.mp3');
     this.element.appendChild(this.canvas);
   }
 
@@ -45,9 +45,9 @@ export default class View {
     const recordDisplay = document.getElementById('recordDisplay');
     const savedRecord = localStorage.getItem('tetrisRecord');
     if (savedRecord) {
-        recordDisplay.innerText = `Рекорд: ${savedRecord}`;
+        recordDisplay.innerText = `Record: ${savedRecord}`;
     } else {
-        recordDisplay.innerText = `Рекорд: 0`;
+        recordDisplay.innerText = `Record: 0`;
     }
 }
 

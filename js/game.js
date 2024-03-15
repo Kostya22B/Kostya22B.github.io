@@ -124,7 +124,7 @@ export default class Game {
         ];
         break;
       default:
-        throw new Error("Неизвестный тип фигуры");
+        throw new Error("Unknown figure type");
     }
     piece.x = Math.floor((10 - piece.blocks[0].length) / 2);
     piece.y = -1;
@@ -260,13 +260,11 @@ export default class Game {
         this.score += newScore;
         this.lines += clearedLines;
         const savedRecord = parseInt(localStorage.getItem('tetrisRecord'), 10) || 0;
-        console.log(newScore, Game.score, savedRecord);
         if (this.score > savedRecord) {
             localStorage.setItem('tetrisRecord', this.score);
         }
     }
 }
-
 
   updatePieces() {
     this.activePiece = this.nextPiece;
