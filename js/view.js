@@ -34,7 +34,7 @@ export default class View {
     this.panelY = 0;
     this.panelWidth = this.width / 3;
     this.panelHeight = this.height;
-    const playing_audio = new Audio('../src/audioRammsteinDuhast.mp3');
+    const playing_audio = new Audio('../src/audio/RammsteinDuhast.mp3');
     this.element.appendChild(this.canvas);
   }
 

@@ -2,7 +2,7 @@ import Game from './js/game.js';
 import View from './js/view.js';
 import Controller from './js/controller.js'
 
-const root = document.querySelector("#root");
+const root = document.querySelector("#game");
 
 const game = new Game();
 const view = new View(root, 432, 576, 20, 10);

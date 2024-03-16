@@ -8,42 +8,45 @@
   <title>Tetris</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
   <link rel="stylesheet" href="./index.css">
+  <script src="js/change-mode.js"></script>
 </head>
 
 <body>
   
     <header>
-        <h1>Tetris</h1>
-        <div class="user-auth">
-          <button id="loginBtn">Login</button>
-          <button id="registerBtn">Register</button>
-          <button id="logoutBtn" style="display: none;" onclick="logout()">Logout</button>
+        <!-- <h1>Tetris</h1> -->
+      <nav>
+          <ul>
+              <li><a href="#">Game</a></li>
+              <li><a href="#">O hře</a></li>
+          </ul>
+      </nav>
+        <div class="right_header">
+          <div>
+            <div class='d1' id='mode_button'><div  class='d2'></div></div>
+          </div>
+          <div class="buttons">
+            <button id="loginBtn">Login</button>
+            <button id="registerBtn">Register</button>
+            <button id="logoutBtn" style="display: none;" onclick="logout()">Logout</button>
+          </div>
       </div>
-        <nav>
-            <ul>
-                <li><a href="#">Hra</a></li>
-                <li><a href="#">Nápověda</a></li>
-                <li><a href="#">O hře</a></li>
-            </ul>
-        </nav>
     </header>
 
     <section id="game">
-        <div id="root">
-          <h1>
+          <!-- <h1>
             <span style="color: red">T</span><span style="color: orange">E</span><span style="color: yellow">T</span><span
               style="color: green">R</span><span style="color: cyan">I</span><span style="color: purple">S</span>
-          </h1>
-        </div>
+          </h1> -->
     </section>
     
     <aside>
         <h2>Score</h2>
-        <div id="recordDisplay" style="color:aliceblue">Record: 0</div>
+        <div id="recordDisplay">Record: 0</div>
     </aside>
 
     <footer>
-        <p>&copy; 2024 Tetris. Všechna práva vyhrazena.</p>
+        <p>&copy; 2024 KAJ. Bondakos Ltd.</p>
     </footer>
     <!-- login&auth form -->
     <div id="loginModal" class="modal">
