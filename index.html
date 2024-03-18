@@ -8,7 +8,8 @@
   <title>Tetris</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
   <link rel="stylesheet" href="./index.css">
-  <script src="js/change-mode.js"></script>
+  <link rel="stylesheet" href="/css/animation_design.css">
+  <link rel="stylesheet" href="css/media.css">
 </head>
 
 <body>
@@ -16,8 +17,8 @@
         <!-- <h1>Tetris</h1> -->
       <nav>
           <ul>
-              <li><a href="#">Game</a></li>
-              <li><a href="#">History of game</a></li>
+              <li><a href="#h1">Game</a></li>
+              <li><a href="#history">History of game</a></li>
           </ul>
       </nav>
         <div class="right_header">
@@ -31,15 +32,14 @@
           </div>
       </div>
     </header>
-
-    <section id="game">
-          <!-- <h1>
+    <h1 id="h1">
             <span style="color: red">T</span><span style="color: orange">E</span><span style="color: yellow">T</span><span
               style="color: green">R</span><span style="color: cyan">I</span><span style="color: purple">S</span>
-          </h1> -->
+          </h1>
+    <section id="game">
           <aside>
             <p class="sectionTitle"><b>CONTROL OPTIONS &amp; SCORES</b></p>
-            <p>
+            <p class="sectionBody">
               <kbd>&larr;</kbd>: Move Left (Move the tetromino to the left) <br>
               <kbd>&rarr;</kbd>: Move Right (Move the tetromino to the right) <br>
               <kbd>&darr;</kbd>: Soft Drop (Accelerate the falling of the tetromino) <br>
@@ -47,10 +47,10 @@
               <kbd>↑</kbd>: Rotate Clockwise (Rotate the tetromino clockwise) <br>
               <kbd>M</kbd>: Mute the game sound<br>
             </p>
-            <h2 style="margin-top: 50px;" id="recordDisplay"></h2>
+            <h2 class="sectionTitle" id="recordDisplay"></h2>
         </aside>
     </section>
-    <div class="history_of_tetris">
+    <div id="history" class="history_of_tetris">
       <p class="sectionTitle"><b>ABOUT TETRIS</b><span class="sectionTitle_reg">®</span></p>
       <p class="sectionBody">Tetris<span class="sectionBody_reg">®</span> is the addictive puzzle game that started it all, embracing our universal desire to create order out of chaos. The Tetris game was created by Alexey Pajitnov in 1984—the product of Alexey’s computer programming experience and his love of puzzles. In the decades to follow, Tetris became one of the most successful and recognizable video games, appearing on nearly every gaming platform available. This page is the official destination for free online single-player Tetris. Click PLAY to start playing one of the world’s most popular puzzle games now!</p>
       <p class="sectionTitle"><b>OBJECTIVE</b></p>
@@ -90,5 +90,6 @@
   </div>
     <script src="./index.js" type="module"></script>
     <script src="./js/account.js" type="module"></script>
+    <script src="js/change-mode.js"></script>
 </body>
 </html>
