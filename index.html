@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
   <title>Tetris</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
   <link rel="stylesheet" href="./index.css">
@@ -12,13 +12,12 @@
 </head>
 
 <body>
-  
     <header>
         <!-- <h1>Tetris</h1> -->
       <nav>
           <ul>
               <li><a href="#">Game</a></li>
-              <li><a href="#">O hře</a></li>
+              <li><a href="#">History of game</a></li>
           </ul>
       </nav>
         <div class="right_header">
@@ -26,9 +25,9 @@
             <div class='d1' id='mode_button'><div  class='d2'></div></div>
           </div>
           <div class="buttons">
-            <button id="loginBtn">Login</button>
-            <button id="registerBtn">Register</button>
-            <button id="logoutBtn" style="display: none;" onclick="logout()">Logout</button>
+            <button id="loginBtn" class="glow-on-hover" type="button">Login</button>
+            <button id="registerBtn" class="glow-on-hover" type="button">Register</button>
+            <button id="logoutBtn" style="display: none;" class="glow-on-hover" type="button" onclick="logout()">Logout</button>
           </div>
       </div>
     </header>
@@ -38,13 +37,30 @@
             <span style="color: red">T</span><span style="color: orange">E</span><span style="color: yellow">T</span><span
               style="color: green">R</span><span style="color: cyan">I</span><span style="color: purple">S</span>
           </h1> -->
+          <aside>
+            <p class="sectionTitle"><b>CONTROL OPTIONS &amp; SCORES</b></p>
+            <p>
+              <kbd>&larr;</kbd>: Move Left (Move the tetromino to the left) <br>
+              <kbd>&rarr;</kbd>: Move Right (Move the tetromino to the right) <br>
+              <kbd>&darr;</kbd>: Soft Drop (Accelerate the falling of the tetromino) <br>
+              <kbd>Space</kbd>: Hard Drop (Instantly drop the tetromino to the bottom) <br>
+              <kbd>↑</kbd>: Rotate Clockwise (Rotate the tetromino clockwise) <br>
+              <kbd>M</kbd>: Mute the game sound<br>
+            </p>
+            <h2 style="margin-top: 50px;" id="recordDisplay"></h2>
+        </aside>
     </section>
-    
-    <aside>
-        <h2>Score</h2>
-        <div id="recordDisplay">Record: 0</div>
-    </aside>
-
+    <div class="history_of_tetris">
+      <p class="sectionTitle"><b>ABOUT TETRIS</b><span class="sectionTitle_reg">®</span></p>
+      <p class="sectionBody">Tetris<span class="sectionBody_reg">®</span> is the addictive puzzle game that started it all, embracing our universal desire to create order out of chaos. The Tetris game was created by Alexey Pajitnov in 1984—the product of Alexey’s computer programming experience and his love of puzzles. In the decades to follow, Tetris became one of the most successful and recognizable video games, appearing on nearly every gaming platform available. This page is the official destination for free online single-player Tetris. Click PLAY to start playing one of the world’s most popular puzzle games now!</p>
+      <p class="sectionTitle"><b>OBJECTIVE</b></p>
+      <p class="sectionBody">The goal of Tetris is to score as many points as possible by clearing horizontal lines of Blocks. The player must rotate, move, and drop the falling Tetriminos inside the Matrix (playing field). Lines are cleared when they are filled with Blocks and have no empty spaces.<br><br>As lines are cleared, the level increases and Tetriminos fall faster, making the game progressively more challenging. If the Blocks land above the top of the playing field, the game is over.</p>
+      <p class="sectionTitle"><b>GENERAL GAMEPLAY INFO</b></p>
+      <p class="sectionBody"><b>GOAL</b> U+2013 Put your organizational skills and endurance to the test by clearing as many lines as possible.</p>
+      <p class="sectionBody"><b>CLEAR LINES</b> U+2013 Maneuver the falling Tetriminos to fit them together within the Matrix. To clear a line, fill every square within a single row.</p>
+      <p class="sectionBody"><b>SCORE POINTS</b> U+2013 Earn points by clearing lines. Clear multiple lines at once to increase your scoring opportunities.</p>
+      <p class="sectionBody"><b>GAME OVER</b> U+2013 Stack the Tetriminos too high and the game is over!</p>
+    </div>
     <footer>
         <p>&copy; 2024 KAJ. Bondakos Ltd.</p>
     </footer>
@@ -73,5 +89,6 @@
       </div>
   </div>
     <script src="./index.js" type="module"></script>
+    <script src="./js/account.js" type="module"></script>
 </body>
 </html>

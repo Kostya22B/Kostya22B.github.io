@@ -7,9 +7,11 @@ export default class Controller {
 
     document.addEventListener("keydown", this.handleKeyDown.bind(this));
     document.addEventListener("keyup", this.handleKeyUp.bind(this));
-
+    this.soundlist = {"tetris": new Audio('../src/audio/tetris_audio.mp3'), 
+                      "gamelost": new Audio('../src/audio/mario-smert.mp3')};
+    this.playedgameover = false;
+    this.isMuted = false;
     this.view.renderStartScreen();
-    this.playing_audio = new Audio('../src/audio/RammsteinDuhast.mp3');
   }
 
   update() {
@@ -37,12 +39,21 @@ export default class Controller {
   updateView() {
     const state = this.game.getState();
     if (state.isGameOver) {
+      this.soundlist["tetris"].pause();
+      if (!this.playedgameover) {
+        this.soundlist["gamelost"].currentTime = 0;
+        this.soundlist["gamelost"].play();
+        this.playedgameover = true;
+      }
       this.view.renderEndScreen(state);
       document.body.style.overflow = '';
     } else if (!this.isPlaying) {
+      this.soundlist["tetris"].pause();
       this.view.renderPauseScreen();
       document.body.style.overflow = '';
     } else {
+      this.soundlist["tetris"].play();
+      this.playedgameover = false;
       this.view.renderMainScreen(state);
       document.body.style.overflow = 'hidden';
     }
@@ -65,20 +76,30 @@ export default class Controller {
     }
   }
 
+  toggleMute() {
+    this.isMuted = !this.isMuted;
+    if (this.isMuted) {
+      for (var key in this.soundlist) {
+          this.soundlist[key].volume = 0;
+    }
+    } else {
+      for (var key in this.soundlist) {
+        this.soundlist[key].volume = 1;
+    }
+  }
+}
   handleKeyDown(event) {
     const state = this.game.getState();
     switch (event.keyCode) {
       case 13: //ENTER
-      if (state.isGameOver) {
-        this.reset();
-      } else if (this.isPlaying) {
-        this.pause();
-        this.playing_audio.pause();
-      } else {
-        this.play();
-        this.playing_audio.play();
-      }
-      break;
+        if (state.isGameOver) {
+          this.reset();
+        } else if (this.isPlaying) {
+          this.pause();
+        } else {
+          this.play();
+        }
+        break;
       case 37: // LEFT ARROW
         this.game.movePieceLeft();
         this.updateView();
@@ -92,12 +113,17 @@ export default class Controller {
         this.updateView();
         break;
       case 40: // DOWN ARROW
-      this.stopTimer();
+        this.stopTimer();
         this.game.movePieceDown();
         this.updateView();
         break;
+      case 77: //M
+        this.toggleMute();
+        console.log("sound dis");
+        break;
     }
   }
+
   handleKeyUp(event) {
     switch (event.keyCode) {
       case 40:
