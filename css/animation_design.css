@@ -154,11 +154,16 @@
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: var(--main-color);
     margin: 20% auto;
     padding: 20px;
     border: 1px solid #888;
+    border-radius: 5px;
     width: 80%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .close {

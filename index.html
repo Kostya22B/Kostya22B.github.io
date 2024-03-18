@@ -46,6 +46,7 @@
     </section>
     <section id="game">
           <aside>
+            <h2 class="sectionTitle" id="recordDisplay">Your Record: </h2>
             <p class="sectionTitle"><b>CONTROL OPTIONS &amp; SCORES</b></p>
             <p class="sectionBody">
               <kbd>&larr;</kbd>: Move Left (Move the tetromino to the left) <br>
@@ -55,7 +56,6 @@
               <kbd>↑</kbd>: Rotate Clockwise (Rotate the tetromino clockwise) <br>
               <kbd>M</kbd>: Mute the game sound<br>
             </p>
-            <h2 class="sectionTitle" id="recordDisplay"></h2>
         </aside>
     </section>
     <div id="history" class="history_of_tetris">
@@ -114,7 +114,8 @@
           <span class="close">&times;</span>
           <h2>Register</h2>
           <form id="registerForm">
-              <input type="text" id="newUsername" placeholder="Username" required autofocus>
+              <input type="text" id="newUsername" placeholder="Username" required>
+              <input type="email" id="newEmail" placeholder="Email" required>
               <input type="password" id="newPassword" placeholder="Password" required>
               <button type="submit">Register</button>
           </form>

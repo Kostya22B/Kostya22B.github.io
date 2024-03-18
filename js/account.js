@@ -73,9 +73,11 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 document.getElementById("registerForm").addEventListener("submit", function(event) {
     event.preventDefault();
     var newUsername = document.getElementById("newUsername").value;
+    var newEmail = document.getElementById("newEmail").value;
     var newPassword = document.getElementById("newPassword").value;
 
     localStorage.setItem("username", newUsername);
+    localStorage.setItem("email", newEmail);
     localStorage.setItem("password", newPassword);
     alert("Registration is succesfull. You can log in now");
     hideModal("registerModal");
