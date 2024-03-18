@@ -45,6 +45,7 @@ export default class View {
 }
 
   renderStartScreen() {
+    //render of record
     const recordDisplay = document.getElementById('recordDisplay');
     const savedRecord = localStorage.getItem('tetrisRecord');
     if (savedRecord) {

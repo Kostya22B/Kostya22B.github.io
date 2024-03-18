@@ -97,6 +97,9 @@ export default class Controller {
         } else if (this.isPlaying) {
           this.pause();
         } else {
+          //fixiruem anchor epta:D
+          document.getElementById('h1').scrollIntoView({behavior: 'smooth'});
+          console.log("fixed");
           this.play();
         }
         break;
@@ -119,7 +122,7 @@ export default class Controller {
         break;
       case 77: //M
         this.toggleMute();
-        console.log("sound dis");
+        // console.log("sound disabled");
         break;
     }
   }
