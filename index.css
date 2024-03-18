@@ -147,6 +147,17 @@ section {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+section * {
+    margin-top: 20px;
+}
+.tetris{
+    margin-top: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -159,9 +170,6 @@ section {
             flex-direction: row-reverse;
     -webkit-animation: slidein 0.5s forwards;
             animation: slidein 0.5s forwards;
-}
-section * {
-    margin-top: 20px;
 }
 footer {
     position: relative;
