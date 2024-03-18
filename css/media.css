@@ -50,4 +50,7 @@
     .sectionBody{
         text-align: center;
     }
+    footer{
+        flex-direction: column;
+    }
 }

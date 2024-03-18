@@ -19,7 +19,10 @@
 	--background: white;
 	--main-color: white;
 }
-
+/* @font-face {
+    font-family: "tetris";
+    src: url('fonts/PressStart2P-Regular.ttf') format('ttf');
+  } */
 #game h1 {
     font-family: 'Press Start 2P', Consolas, monospace;
     color: var(--main-color);
@@ -161,11 +164,62 @@ section * {
     margin-top: 20px;
 }
 footer {
-    background-color: var(--header-bg);
-    color: var(--main-color);
-    text-align: center;
-    padding: 10px;
-    bottom: 0;
+    position: relative;
     width: 100%;
-}
+    background: var(--header-bg);
+    min-height: 100px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .social-icon,
+  .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+  }
+  
+  .social-icon__item,
+  .menu__item {
+    list-style: none;
+  }
+  
+  .social-icon__link {
+    font-size: 2rem;
+    color: var(--background);
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+  }
+  .social-icon__link:hover {
+    transform: translateY(-10px);
+  }
+  
+  .menu__link {
+    font-size: 1.2rem;
+    color: var(--background);
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    text-decoration: none;
+    opacity: 0.75;
+    font-weight: 300;
+  }
+  
+  .menu__link:hover {
+    opacity: 1;
+  }
+  
+  .footer p {
+    color: var(--background);
+    margin: 15px 0 10px 0;
+    font-size: 1rem;
+    font-weight: 300;
+  }
 /*end of base styles*/

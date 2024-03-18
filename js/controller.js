@@ -99,7 +99,6 @@ export default class Controller {
         } else {
           //fixiruem anchor epta:D
           document.getElementById('h1').scrollIntoView({behavior: 'smooth'});
-          console.log("fixed");
           this.play();
         }
         break;
