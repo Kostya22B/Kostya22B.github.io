@@ -42,7 +42,11 @@
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     }
-
+    .tetris{
+        flex-direction: column-reverse;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     .history_of_tetris {
         padding-left: 10px;
         padding-right: 10px;
