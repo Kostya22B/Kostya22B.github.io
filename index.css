@@ -52,6 +52,7 @@ button {
 svg {
     cursor: pointer;
 }
+
 header {
     position: fixed;
     top: 0;
@@ -134,7 +135,6 @@ header nav ul li a {
 }
 h1{
     text-align: center;
-    margin-top: 20px;
     font-size: 60px;
 }
 aside p {
@@ -143,15 +143,14 @@ aside p {
 }
 
 section {
-    margin-top: 20px;
+    margin-top: 40px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
-}
-section * {
-    margin-top: 20px;
+
 }
 .tetris{
     margin-top: 20px;
