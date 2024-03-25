@@ -3,9 +3,13 @@ const face = document.getElementById('face');
     const rightEye = document.getElementById('right-eye');
     const mouth = document.getElementById('mouth');
 
+    /**
+    * @brief Change mood of the
+    */
     function changeMood() {
       const moodIndex = Math.floor(Math.random() * 3);
       let newMood;
+      // The mood index is the mood index.
       switch (moodIndex) {
         case 0:
           newMood = {

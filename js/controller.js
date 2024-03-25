@@ -1,4 +1,8 @@
 export default class Controller {
+  /**
+  * @param game
+  * @param view
+  */
   constructor(game, view) {
     this.game = game;
     this.view = view;
@@ -14,32 +18,49 @@ export default class Controller {
     this.view.renderStartScreen();
   }
 
+  /**
+  * @brief / / object
+  */
   update() {
     this.game.movePieceDown();
     this.updateView();
   }
 
+  /**
+  * @brief / / object
+  */
   play() {
     this.isPlaying = true;
     this.startTimer();
     this.updateView();
   }
 
+  /**
+  * @brief / / object
+  */
   pause() {
     this.isPlaying = false;
     this.stopTimer();
     this.updateView();
   }
 
+  /**
+  * @brief Resets the game to its initial
+  */
   reset() {
     this.game.reset();
     this.play();
   }
 
+  /**
+  * @brief a / object
+  */
   updateView() {
     const state = this.game.getState();
+    // The game is paused pause pause pause pause pause pause pause pause pause main main
     if (state.isGameOver) {
       this.soundlist["tetris"].pause();
+      // This method will play the gameover.
       if (!this.playedgameover) {
         this.soundlist["gamelost"].currentTime = 0;
         this.soundlist["gamelost"].play();
@@ -47,6 +68,7 @@ export default class Controller {
       }
       this.view.renderEndScreen(state);
       document.body.style.overflow = '';
+    // This method is called when the tetris is playing.
     } else if (!this.isPlaying) {
       this.soundlist["tetris"].pause();
       this.view.renderPauseScreen();
@@ -59,9 +81,13 @@ export default class Controller {
     }
   }
 
+  /**
+  * @brief / / object
+  */
   startTimer() {
     const speed = 1000 - this.game.getState().level * 100;
 
+    // Update the animation interval. If the interval is not already set the interval will be updated.
     if (!this.intervalId) {
       this.intervalId = setInterval(() => {
         this.update();
@@ -69,15 +95,23 @@ export default class Controller {
     }
   }
 
+  /**
+  * @brief / / object
+  */
   stopTimer() {
+    // Clears the interval and removes the interval from the intervalId.
     if (this.intervalId) {
       clearInterval(this.intervalId);
       this.intervalId = null;
     }
   }
 
+  /**
+  * @brief / / object
+  */
   toggleMute() {
     this.isMuted = !this.isMuted;
+    // Set volume of all sounds in the soundlist
     if (this.isMuted) {
       for (var key in this.soundlist) {
           this.soundlist[key].volume = 0;
@@ -88,12 +122,18 @@ export default class Controller {
     }
   }
 }
+  /**
+  * @param event
+  */
   handleKeyDown(event) {
     const state = this.game.getState();
+    // Methode qui el evento de la keypress
     switch (event.keyCode) {
       case 13: //ENTER
+        // mueva la mensaje de la vista de la clase
         if (state.isGameOver) {
           this.reset();
+        // Smoothe el h1. scrollIntoView behavior smooth
         } else if (this.isPlaying) {
           this.pause();
         } else {
@@ -126,7 +166,11 @@ export default class Controller {
     }
   }
 
+  /**
+  * @param event
+  */
   handleKeyUp(event) {
+    // The keydown event is the keypress of the timer.
     switch (event.keyCode) {
       case 40:
         this.startTimer();

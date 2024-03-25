@@ -9,6 +9,13 @@ export default class View {
     '7': 'red'
   };
 
+  /**
+  * @param element
+  * @param width
+  * @param height
+  * @param rows
+  * @param columns
+  */
   constructor(element, width, height, rows, columns) {
     this.element = element;
     this.width = width;
@@ -38,16 +45,23 @@ export default class View {
     this.element.appendChild(this.canvas);
   }
 
+  /**
+  * @param state
+  */
   renderMainScreen(state) {
     this.clearScreen();
     this.renderPlayfield(state);
     this.renderPanel(state);
 }
 
+  /**
+  * @brief / / object
+  */
   renderStartScreen() {
     //render of record
     const recordDisplay = document.getElementById('recordDisplay');
     const savedRecord = localStorage.getItem('tetrisRecord');
+    // Set the record display text.
     if (savedRecord) {
         recordDisplay.innerText = `Your record: ${savedRecord}`;
     } else {
@@ -60,6 +74,9 @@ export default class View {
     this.context.fillText("Press ENTER to Start", this.width / 2, this.height / 2);
   }
 
+  /**
+  * @brief / / object
+  */
   renderPauseScreen() {
     this.context.fillStyle = "rgba(0,0,0,0.75)";
     this.context.fillRect(0, 0, this.width, this.height);
@@ -71,6 +88,9 @@ export default class View {
     this.context.fillText("Press ENTER to Resume", this.width / 2, this.height / 2);
   }
 
+  /**
+  * @brief / / object
+  */
   renderEndScreen({ score }) {
     this.clearScreen();
     this.context.fillStyle = "white";
@@ -82,15 +102,24 @@ export default class View {
     this.context.fillText("Press ENTER to Restart:", this.width / 2, this.height / 2 + 48);
 }
 
+  /**
+  * @brief / / object
+  */
   clearScreen() {
     this.context.clearRect(0, 0, this.width, this.height);
   }
 
+  /**
+  * @brief a / object
+  */
   renderPlayfield({ playfield }) {
+    // Render all the blocks in the playfield.
     for (let y = 0; y < playfield.length; y++) {
+      // Render all blocks in the playfield.
       for (let x = 0; x < playfield[y].length; x++) {
         const block = playfield[y][x];
 
+        // Render the block on the screen.
         if (block) {
           this.renderBlock(
             this.playfieldX + (x * this.blockWidth), 
@@ -108,6 +137,9 @@ export default class View {
     this.context.strokeRect(0, 0, this.playfieldWidth, this.playfieldHeight);
   }
 
+  /**
+  * @brief a / object
+  */
   renderPanel({ level,  score, lines, nextPiece }) {
     this.context.textAlign = "start";
     this.context.textBaseline = "top";
@@ -119,10 +151,13 @@ export default class View {
     this.context.fillText(`Level: ${level}`, this.panelX, this.panelY + 72); 
     this.context.fillText("Next:", this.panelX, this.panelY + 96);
 
+    // Render all blocks in the nextPiece.
     for (let y = 0; y < nextPiece.blocks.length; y++) {
+      // Render all blocks in the nextPiece. blocks array.
       for (let x = 0; x < nextPiece.blocks[y].length; x++) {
         const block = nextPiece.blocks[y][x];
 
+        // Render the block on the panel.
         if (block) {
           this.renderBlock(
             this.panelX + (x * this.blockWidth * 0.5),
@@ -136,6 +171,13 @@ export default class View {
     }
   }
 
+  /**
+  * @param x
+  * @param y
+  * @param width
+  * @param height
+  * @param color
+  */
   renderBlock(x, y, width, height, color) {
     this.context.fillStyle = color;
     this.context.strokeStyle = "black";

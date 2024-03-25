@@ -1,3 +1,4 @@
+// Imports and configures the game
 import Game from './js/game.js';
 import View from './js/view.js';
 import Controller from './js/controller.js'
