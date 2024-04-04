@@ -36,12 +36,16 @@
         flex-direction: column-reverse;
         padding-left: 10px;
         padding-right: 10px;
+        text-align: center;
     }
     .history_of_tetris {
         padding-left: 10px;
         padding-right: 10px;
     }
-    .sectionBody{
+    .history_of_tetris p{
+        text-align: center;
+    }
+    .section p{
         text-align: center;
     }
     footer{

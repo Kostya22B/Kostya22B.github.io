@@ -120,21 +120,24 @@
     margin-top: 40px;
     margin-bottom: 15px;
     width: 100%;
-    color: var(--main-color);
     font-family: Verdana;
-    font-size: 24px;
+    font-size: 175%;
     text-align: center;
 }
-
-.sectionBody {
+.history_of_tetris p:nth-of-type(odd) {
     margin-top: 5px;
     margin-bottom: 10px;
     width: 100%;
     color: var(--main-color);
     font-family: Verdana;
-    font-size: 16px;
     line-height: 1.5;
-    text-align: left;
+}
+.history_of_tetris p:nth-of-type(2n) b {
+    color: greenyellow;
+    
+}
+.history_of_tetris p:nth-of-type(odd) b {
+    color: red;
 }
 
 /* Additions for modals */
