@@ -1,4 +1,5 @@
 function getLocation() {
+    // Запрашиваем доступ к геолокации
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else {
@@ -6,11 +7,13 @@ function getLocation() {
     }
 }
 
+// Функция для обработки успешного получения местоположения
 function showPosition(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
     var accuracy = position.coords.accuracy;
 
+    // Вывод информации о местоположении на HTML-страницу
     document.getElementById("locationInfo").innerHTML = `
         <p>Latitude: ${latitude}</p>
         <p>Longitude: ${longitude}</p>
@@ -18,6 +21,7 @@ function showPosition(position) {
     `;
 }
 
+// Функция для обработки ошибок при получении местоположения
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
@@ -35,4 +39,7 @@ function showError(error) {
     }
 }
 
-window.onload = getLocation;
+window.onload = function() {
+    alert("To see your geolocation and give this permission to our ebsite, please press allow");
+    getLocation();
+};
