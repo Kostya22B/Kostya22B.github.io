@@ -6,16 +6,20 @@
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
                 flex-direction: column;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+    }
+    header nav{
+        display: flex;
+        justify-content: space-evenly;
     }
 
     header nav ul li {
         display: block;
         margin: 10px 0;
     }
-    
+    .modal{
+        height: 100%;
+        padding-top: 20%;
+    }
     aside {
         width: 100%;
     }
@@ -38,11 +42,11 @@
         padding-right: 10px;
         text-align: center;
     }
-    .history_of_tetris {
+    section {
         padding-left: 10px;
         padding-right: 10px;
     }
-    .history_of_tetris p{
+    section p{
         text-align: center;
     }
     .section p{

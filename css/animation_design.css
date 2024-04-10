@@ -3,8 +3,8 @@
     width: 100px;
     border: none;
     outline: none;
-    color: #fff;
-    background: #111;
+    color: var(--main-bg);
+    background: var(--background);
     cursor: pointer;
     position: relative;
     z-index: 0;
@@ -35,7 +35,7 @@
 }
 
 .glow-on-hover:active {
-    color: #000;
+    color: var(--background);
 }
 
 .glow-on-hover:hover:before {
@@ -48,7 +48,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #111;
+    background: var(--background);
     left: 0;
     top: 0;
     border-radius: 10px;
@@ -101,7 +101,7 @@
     -ms-transform: scale(1.2);
     -o-transform: scale(1.2);
 }
-.history_of_tetris {
+section {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -124,7 +124,7 @@
     font-size: 175%;
     text-align: center;
 }
-.history_of_tetris p:nth-of-type(odd) {
+section p:nth-of-type(odd) {
     margin-top: 5px;
     margin-bottom: 10px;
     width: 100%;
@@ -132,11 +132,11 @@
     font-family: Verdana;
     line-height: 1.5;
 }
-.history_of_tetris p:nth-of-type(2n) b {
+section p:nth-of-type(2n) b {
     color: greenyellow;
     
 }
-.history_of_tetris p:nth-of-type(odd) b {
+section p:nth-of-type(odd) b {
     color: red;
 }
 
@@ -150,32 +150,94 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 60px;
+    background-color: rgba(0, 0, 0, 0.3);
     -webkit-animation: slidein 0.5s forwards;
             animation: slidein 0.5s forwards;
 }
 
 .modal-content {
     background-color: var(--main-color);
-    margin: 20% auto;
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     border-radius: 5px;
-    width: 80%;
+    width: 70%;
+    height: 50%;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+    text-align: center;
+}
+.modal-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="password"],
+.modal-content input[type="file"],
+.modal-content button {
+    display: block;
+    width: calc(70%); /* Уменьшаем ширину полей ввода и кнопки загрузки */
+    margin: 10px auto; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.modal-content input[type="file"] {
+    width: calc(60%);
+}
+
+.modal-content button {
+    width: calc(50%);
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: var(--main-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.file-upload {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    font-size: 20px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--button-color);
+    color: var(--main-bg);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 0 5px white;
+}
+
+.custom-file-upload:hover {
+    background-color: var(--button-hover-color);
+}
 .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
     color: black;

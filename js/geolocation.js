@@ -15,13 +15,24 @@ function getLocation() {
 function showPosition(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
-    var accuracy = position.coords.accuracy;
 
-    document.getElementById("locationInfo").innerHTML = `
-        <p>Latitude: ${latitude}</p>
-        <p>Longitude: ${longitude}</p>
-        <p>Accuracy: ${accuracy} meters</p>
-    `;
+    getCityName(latitude, longitude);
+}
+
+function getCityName(latitude, longitude) {
+    var apiKey = 'c3eac1a8b3cff35065386cc954cba7bf';
+    var url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            var city = data.name;
+            var country = data.sys.country;
+            document.getElementById("locationInfo").innerHTML += `<p>City: ${city}, Country: ${country}</p>`;
+        })
+        .catch(error => {
+            console.error('Error fetching weather data:', error);
+        });
 }
 
 function showError(error) {

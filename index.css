@@ -141,7 +141,9 @@ aside p {
     line-height: 1.5;
     font-size: medium;
 }
-
+aside div{
+    text-align: center;
+}
 section {
     margin-top: 40px;
     display: -webkit-box;
@@ -150,7 +152,6 @@ section {
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
-
 }
 .tetris{
     margin-top: 20px;
@@ -171,6 +172,7 @@ section {
     -webkit-animation: slidein 0.5s forwards;
             animation: slidein 0.5s forwards;
 }
+
 footer {
     position: relative;
     width: 100%;

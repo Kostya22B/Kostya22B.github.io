@@ -11,9 +11,7 @@
     </div>
 
     <script>
-        // Функция для получения местоположения пользователя
         function getLocation() {
-            // Запрашиваем доступ к геолокации
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, showError);
             } else {
@@ -21,21 +19,17 @@
             }
         }
 
-        // Функция для обработки успешного получения местоположения
         function showPosition(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
             var accuracy = position.coords.accuracy;
 
-            // Вывод информации о местоположении на HTML-страницу
             document.getElementById("locationInfo").innerHTML = `
                 <p>Latitude: ${latitude}</p>
                 <p>Longitude: ${longitude}</p>
                 <p>Accuracy: ${accuracy} meters</p>
             `;
         }
-
-        // Функция для обработки ошибок при получении местоположения
         function showError(error) {
             switch(error.code) {
                 case error.PERMISSION_DENIED:
@@ -52,11 +46,8 @@
                     break;
             }
         }
-
-        // Вызываем функцию для получения местоположения при загрузке страницы
         window.onload = function() {
-            // Запрашиваем доступ к геолокации
-            alert("Для получения вашего местоположения нажмите 'Разрешить' или 'Allow' в диалоговом окне.");
+            alert("For sharing your geolocation press 'Allow'");
             getLocation();
         };
     </script>

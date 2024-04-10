@@ -1,7 +1,7 @@
 // Imports and configures the game
-import Game from './js/game.js';
-import View from './js/view.js';
-import Controller from './js/controller.js'
+import Game from './game_js/game.js';
+import View from './game_js/view.js';
+import Controller from './game_js/controller.js'
 
 const root = document.querySelector("#game");
 
