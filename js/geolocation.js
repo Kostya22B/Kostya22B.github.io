@@ -1,19 +1,22 @@
 function getLocation() {
-    // Запрашиваем доступ к геолокации
+    var locationToggle = document.getElementById("locationToggle");
+    
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        if (locationToggle.checked) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            document.getElementById("locationInfo").innerHTML = "Geolocation is turned off.";
+        }
     } else {
         document.getElementById("locationInfo").innerHTML = "Geolocation is not supported by this browser.";
     }
 }
 
-// Функция для обработки успешного получения местоположения
 function showPosition(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
     var accuracy = position.coords.accuracy;
 
-    // Вывод информации о местоположении на HTML-страницу
     document.getElementById("locationInfo").innerHTML = `
         <p>Latitude: ${latitude}</p>
         <p>Longitude: ${longitude}</p>
@@ -21,7 +24,6 @@ function showPosition(position) {
     `;
 }
 
-// Функция для обработки ошибок при получении местоположения
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
@@ -39,7 +41,14 @@ function showError(error) {
     }
 }
 
-window.onload = function() {
-    alert("To see your geolocation and give this permission to our ebsite, please press allow");
-    getLocation();
-};
+document.addEventListener("DOMContentLoaded", function() {
+    var locationToggle = document.getElementById("locationToggle");
+
+    locationToggle.addEventListener("change", function() {
+        if (locationToggle.checked) {
+            getLocation();
+        } else {
+            document.getElementById("locationInfo").innerHTML = "Geolocation is turned off.";
+        }
+    });
+});
